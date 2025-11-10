@@ -9,7 +9,7 @@ import json
 
 from RUDLeg.johnson import Joshua
 
-from config.SceneManager import SceneManager
+from RGAME.SceneManager import SceneManager
 
 
 
@@ -29,7 +29,7 @@ class MyGame:
 
 	def __init__(self):
 		pg.init()
-		self.data = Joshua(path=os.path.join('config', 'data', 'YourData.json'))
+		self.data = Joshua(path=RSET)
 		self.data_read = self.data.read_data()
 
 		#debug-client connection
