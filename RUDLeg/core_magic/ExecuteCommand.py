@@ -196,6 +196,13 @@ def task_run(arguments):
 
 
         #Execute line
+        elif command == "on-debug":
+            pass
+
+        elif command == "off-debug":
+            pass
+
+
         elif command == "run":
             if build_data["was_built"]:
                 build_data["was_built"] = False

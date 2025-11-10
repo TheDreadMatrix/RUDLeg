@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools", "wheel", "numpy", "numba", "pygame-ce", "moderngl", "pyglm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rudleg"
+version = "0.1.0"
+description = "RudlEngine — experimental game framework"
+authors = [{ name = "TheDreadMatrix" }]
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.8"
+
+[project.urls]
+Homepage = "https://github.com/TheDreadMatrix/RUDLeg"

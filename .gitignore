@@ -7,6 +7,12 @@ game/
 config
 config/
 
+dist
+dist/
+
+rudleg-egg-info/
+rudleg-egg-info
+
 plans.txt
 tester.py
 .gitignore
