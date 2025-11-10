@@ -11,13 +11,20 @@ BLACK = (0, 0, 0)
 HOST_DEBUG = "127.0.0.1"
 PORT_DEBUG = 5050
 
+
 font = pg.font.Font(None, 36)
 
 server = sock.socket(sock.AF_INET, sock.SOCK_STREAM)
 server.bind((HOST_DEBUG, PORT_DEBUG))
 server.listen(1)
 
-conn, addr = server.accept()
+server.settimeout(2.5)
+
+try:
+    conn, addr = server.accept()
+except sock.timeout:
+    pg.display.message_box("Sorry! But you need to create config")
+    sys.exit(1)
 
 
 run = True
