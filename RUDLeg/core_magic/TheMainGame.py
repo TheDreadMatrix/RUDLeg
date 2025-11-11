@@ -36,7 +36,7 @@ class MyGame:
 		self.data_read = self.data.read_data()
 
 		#debug-client connection
-		if self.data_read.get("debug"):
+		if self.build_data.get("debug"):
 			try:
 				self.debug_client = sock.socket(sock.AF_INET, sock.SOCK_STREAM)
 				self.debug_client.connect((HOST_DEBUG, PORT_DEBUG))
