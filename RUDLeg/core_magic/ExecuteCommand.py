@@ -56,6 +56,37 @@ def task_run(arguments):
             "\033[0m"
             )
             sys.exit(0)
+            
+
+
+        elif command == "re-load":
+            if len(arguments) < 3:
+                sys.stderr.write("\033[31mYou must have written dir_name\033[0m")
+                sys.exit(1)
+
+            
+            dir_name = arguments[2]
+            file_path = res.files("RUDLeg.core_magic").joinpath(inverter_file)
+            with open(file_path, "r", encoding="UTF-8") as f:
+                code_writer = f.read()
+
+            
+            if "RGAME" in code_writer:
+                code_writer = code_writer.replace("RGAME", f"{dir_name}")
+
+            
+            if "RSET" in code_writer:
+                code_writer = code_writer.replace(
+                    "RSET",
+                    f"os.path.join('{dir_name}', 'data', 'YourData.json')"
+                )
+
+            
+            with open(file_path, "w", encoding="utf-8") as f:
+                f.write(code_writer)
+            sys.exit(0)
+
+
 
         elif command == "create":
             #if you forgot write dir_name in < py helper.py create ... >
