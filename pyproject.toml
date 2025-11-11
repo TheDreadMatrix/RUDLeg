@@ -1,5 +1,6 @@
-[tool.setuptools]
-include-package-data = true
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "rudleg"
@@ -9,9 +10,26 @@ authors = [{ name = "TheDreadMatrix" }]
 readme = "README.md"
 license = { file = "LICENSE" }
 requires-python = ">=3.8"
+
 dependencies = [
     "numpy>=1.23,<1.27",
     "pygame-ce>=2.5,<2.6",
     "moderngl>=5.10,<6.5",
     "pyglm>=0.1"
+]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+# говорим setuptools искать пакеты внутри текущей директории
+where = ["."]
+include = ["RUDLeg*"]
+
+[tool.setuptools.package-data]
+# включаем ассеты в пакет
+RUDLeg = [
+    "core_magic/*.json",
+    "stuff/*",
+    "stuff/**/*"
 ]
