@@ -20,8 +20,8 @@ def scene_code(dir_name: str):
              "\t#that method need only for update logic and physic functions\n"\
              "\tdef update(self):\n" \
              "\t\tstate = self.app.data_read['game-statetment']\n"\
-             "\t\tself.current_scene = self.scene_dict.get(self.app.data_read['game-statetment'])()\n"\
              "\t\tif self.state != state:\n"\
+             "\t\t\tself.current_scene = self.scene_dict.get(self.app.data_read['game-statetment'])()\n"\
              "\t\t\tself.state = state\n"\
              "\n"\
              "\t\tself.current_scene.update()\n" \
@@ -37,8 +37,6 @@ def scene_code(dir_name: str):
 
 
 
-render_code = "from RudlEngine.RudlSettings.imports import *\n" \
-              "from RudlEngine.RudlFunctions.texture import texture_position"
 
 
 
@@ -197,6 +195,19 @@ example_data = '{\n'\
   '\t"debug": true,\n'\
   '\t"need-to-save": true\n'\
 '}'\
+
+
+
+manager =   'from RUDLeg.core_magic.ExecuteCommand import task_run\n' \
+            'import sys\n' \
+            '\n' \
+            'def main():\n' \
+            '\n' \
+            '\n' \
+            '\ttask_run(sys.argv)\n' \
+            '\n' \
+            'if __name__ == "__main__":\n' \
+            '\tmain()'
 
 
 

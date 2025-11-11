@@ -33,3 +33,7 @@ RUDLeg = [
     "stuff/*",
     "stuff/**/*"
 ]
+
+
+[project.scripts]
+rudleg-create = "RUDLeg.cli:main"
