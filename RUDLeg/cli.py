@@ -7,10 +7,4 @@ def rudleg_create():
         f.write(manager)
 
 def main():
-    command = sys.argv[0]
-    print(command)
-
-    if command == "rudleg-create":
-        rudleg_create()
-    else:
-        sys.stdout.write("\033[31mUndefined command\033[0m")
+    rudleg_create()
