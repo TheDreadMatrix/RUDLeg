@@ -2,6 +2,7 @@ import sys
 import os
 import subprocess
 import importlib.resources as res
+import runpy
 
 from RUDLeg.core_magic.CodeTemplateAndFunction import *
 from RUDLeg.johnson import Joshua
@@ -101,23 +102,24 @@ def task_run(arguments):
                         f.write(example_data)
             
 
-            with open(os.path.join("RUDLeg", "core_magic", inverter_file), "r", encoding="UTF-8") as f:
+            file_path = res.files("RUDLeg.core_magic").joinpath(inverter_file)
+            with open(file_path, "r", encoding="UTF-8") as f:
                 code_writer = f.read()
 
-                if "RGAME" in code_writer:
-                    new_code = code_writer.replace("RGAME", f"{dir_name}")
+            
+            if "RGAME" in code_writer:
+                code_writer = code_writer.replace("RGAME", f"{dir_name}")
 
-                with open(os.path.join("RUDLeg", "core_magic", inverter_file), "w", encoding="utf-8") as f:
-                    f.write(new_code)  
+            
+            if "RSET" in code_writer:
+                code_writer = code_writer.replace(
+                    "RSET",
+                    f"os.path.join('{dir_name}', 'data', 'YourData.json')"
+                )
 
-            with open(os.path.join("RUDLeg", "core_magic", inverter_file), "r", encoding="UTF-8") as f:
-                code_writer = f.read()
-
-                if "RSET" in code_writer:
-                    new_code = code_writer.replace("RSET", f"os.path.join('{dir_name}', 'data', 'YourData.json')")
-
-                with open(os.path.join("RUDLeg", "core_magic", inverter_file), "w", encoding="utf-8") as f:
-                    f.write(new_code)
+            
+            with open(file_path, "w", encoding="utf-8") as f:
+                f.write(code_writer)
 
             
             sys.stdout.write(f"\033[32mYour config: {dir_name} succesfully created.\033[0m")
@@ -212,7 +214,8 @@ def task_run(arguments):
   
 
                 if build_data["debug"]:
-                     subprocess.Popen([sys.executable, os.path.join("RUDLeg", "core_magic", "DebugManager.py")])
+                      with res.as_file(res.files("RUDLeg.core_magic").joinpath("DebugManager.py")) as debug_file_path:
+                        subprocess.Popen([sys.executable, str(debug_file_path)])
 
                     
                 try:
@@ -259,7 +262,8 @@ def task_run(arguments):
             build.save_data(build_data)
 
             if build_data["debug"]:
-                subprocess.Popen([sys.executable, os.path.join("RUDLeg", "core_magic", "DebugManager.py")])
+                with res.as_file(res.files("RUDLeg.core_magic").joinpath("DebugManager.py")) as debug_file_path:
+                        subprocess.Popen([sys.executable, str(debug_file_path)])
 
             try:
                 from RUDLeg.core_magic.TheMainGame import MyGame
