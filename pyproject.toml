@@ -12,7 +12,6 @@ license = { file = "LICENSE" }
 requires-python = ">=3.8"
 
 dependencies = [
-    "numpy>=1.23,<1.27",
     "pygame-ce>=2.5,<2.6",
     "moderngl>=5.10,<6.5",
     "pyglm>=0.1"

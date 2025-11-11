@@ -1,7 +1,6 @@
 import pygame as pg
 import socket as sock
 import moderngl as mgl
-import numpy as np
 from PIL import Image
 import os, sys
 import json
@@ -91,17 +90,6 @@ class MyGame:
 
 	def close_game(self):
 		self.is_run = False
-
-
-	
-	def take_screenshot(self, path):
-		fb = self.ctx.screen
-		width, height = fb.size
-		data = fb.read(components=3, alignment=1)
-		img = np.frombuffer(data, dtype=np.uint8).reshape((height, width, 3))
-		img = np.flip(img, axis=0)
-		Image.fromarray(img, "RGB").save(path)
-
 
 
 	def switch_scene(self, scene_name_anotation: str):
