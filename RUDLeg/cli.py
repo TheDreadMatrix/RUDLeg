@@ -8,6 +8,7 @@ def rudleg_create():
 
 def main():
     command = sys.argv[0]
+    print(command)
 
     if command == "rudleg-create":
         rudleg_create()
