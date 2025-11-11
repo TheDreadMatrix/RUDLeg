@@ -32,6 +32,12 @@ def task_run(arguments):
             "\033[33m" 
             "Defined commands are here:\n"
             "\n"
+            "Log and flags:\n"
+            "\n"
+            "\ton-debug : change flag 'debug' to ON\n"
+            "\toff-debug : change flag 'debug' to OFF\n"
+            "\tlog-flags : show all flags\n"
+            "\n"
             "Execute and help commands:\n"
             "\trun : runs program...\n"
             "\tbuild : the command for build and prepare for running...\n"
@@ -199,24 +205,36 @@ def task_run(arguments):
         
 
 
-        #Execute line
+        #Options and information
         elif command == "on-debug":
             if build_data["debug"]:
-                sys.stderr.write("\033[33mNothing to do...[0m")
+                sys.stderr.write("\033[33mNothing to do...\033[0m")
                 sys.exit(1)
             else:
                 build_data["debug"] = True
                 build.save_data(build_data)
+                sys.stdout.write("\033[32mYou succesfully changed flag debug to ON.\033[0m")
 
         elif command == "off-debug":
             if not build_data["debug"]:
-                sys.stderr.write("\033[33mNothing to do[0m")
+                sys.stderr.write("\033[33mNothing to do\033[0m")
                 sys.exit(1)
             else:
                 build_data["debug"] = False
                 build.save_data(build_data)
+                sys.stdout.write("\033[32mYou succesfully changed flag debug to OFF.\033[0m")
 
 
+        elif command == "log-flags":
+            sys.stdout.write("\033[33mAll flags to write a log\033[0m")
+            for key, item in build_data.items:
+                if key != "build":
+                    sys.stdout.write(f"\033[33m{key} - {item}\033[0m")
+            sys.exit(0)
+        
+
+
+        #Execute command
         elif command == "run":
             if build_data["build"]:
                 build_data["build"] = False
