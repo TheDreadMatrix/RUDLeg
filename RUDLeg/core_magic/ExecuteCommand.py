@@ -1,13 +1,15 @@
 import sys
 import os
 import subprocess
+import importlib.resources as res
 
 from RUDLeg.core_magic.CodeTemplateAndFunction import *
 from RUDLeg.johnson import Joshua
 
 
 
-build = Joshua(os.path.join("RUDLeg", "core_magic", "build.json"))
+build_path = res.files("RUDLeg.core_magic").joinpath("build.json")
+build = Joshua(str(build_path))
 build_data = build.read_data()
 
 
