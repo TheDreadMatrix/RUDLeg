@@ -1,4 +1,5 @@
 LICENSE
+MANIFEST.in
 pyproject.toml
 setup.cfg
 RUDLeg/__init__.py
@@ -13,6 +14,12 @@ RUDLeg/core_magic/DebugManager.py
 RUDLeg/core_magic/ExecuteCommand.py
 RUDLeg/core_magic/TheMainGame.py
 RUDLeg/core_magic/__init__.py
+RUDLeg/core_magic/build.json
+RUDLeg/stuff/stuff/RUDLIcon.png
+RUDLeg/stuff/stuff/icon.ico
+RUDLeg/stuff/stuff/icon.png
+RUDLeg/stuff/stuff/that_man.png
+RUDLeg/stuff/stuff/tiles-4.png
 RUDLeg/textures/__init__.py
 RUDLeg/textures/texture.py
 RUDLeg/ui_interface/__init__.py
@@ -21,4 +28,5 @@ RUDLeg/ui_interface/user_type.py
 rudleg.egg-info/PKG-INFO
 rudleg.egg-info/SOURCES.txt
 rudleg.egg-info/dependency_links.txt
+rudleg.egg-info/requires.txt
 rudleg.egg-info/top_level.txt

@@ -1,3 +1,6 @@
+[tool.setuptools]
+include-package-data = true
+
 [project]
 name = "rudleg"
 version = "0.1.0"

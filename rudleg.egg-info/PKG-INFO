@@ -205,8 +205,11 @@ License:                                  Apache License
            See the License for the specific language governing permissions and
            limitations under the License.
         
-Project-URL: Homepage, https://github.com/TheDreadMatrix/RUDLeg
 Requires-Python: >=3.8
 Description-Content-Type: text/markdown
 License-File: LICENSE
+Requires-Dist: numpy<1.27,>=1.23
+Requires-Dist: pygame-ce<2.6,>=2.5
+Requires-Dist: moderngl<6.5,>=5.10
+Requires-Dist: pyglm>=0.1
 Dynamic: license-file
