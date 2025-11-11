@@ -3,6 +3,7 @@ import socket as sock
 import moderngl as mgl
 import os, sys
 import json
+import importlib.resources as res
 
 
 from RUDLeg.johnson import Joshua
@@ -74,7 +75,8 @@ class MyGame:
 
 
 		pg.display.set_caption(f"The RudlEngine: {SV}", f"The RudlEngine: {SV}")
-		pg.display.set_icon(pg.image.load(os.path.join("RUDLeg", "stuff", "stuff", "icon.png")))
+		icon_path = res.files("RUDLeg.stuff.stuff").joinpath("icon.png")
+		pg.display.set_icon(pg.image.load(str(icon_path)))
 		self.init_on()
 
 	def init_on(self):
