@@ -23,6 +23,7 @@ def give_texture(path, ctx, filter="near"):
     
 
 #from surface to texture
+
 def give_surfture(surface: pg.Surface, ctx, filter="near"):
     surface = pg.transform.flip(surface, flip_y=True, flip_x=False)
     surface_data = pg.image.tobytes(surface, "RGBA")
@@ -43,6 +44,17 @@ def give_program(vertex_path, fragment_path, ctx):
     fragment_shader = read_shader_file(path=fragment_path)
 
     return ctx.program(vertex_shader=vertex_shader, fragment_shader=fragment_shader)
+
+
+
+def from_ndc_to_sdl(width, height) -> glm.mat4:
+     return glm.mat4(
+          glm.vec4(width // 2, 0, 0, 0),
+          glm.vec4(0, -height // 2, 0, 0),
+          glm.vec4(0, 0, 1, 0),
+          glm.vec4(width // 2, height // 2, 0, 1)
+     )
+     
 
 
 

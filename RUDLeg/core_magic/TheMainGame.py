@@ -64,10 +64,12 @@ class MyGame:
 		self.ctx.viewport = (0, 0, self.screen.get_width(), self.screen.get_height())
 
 
-		self.verticles_2d = [-1.0, -1.0, 0.0, 1.0,
-							1.0, -1.0, 1.0, 1.0,
-							1.0, 1.0, 1.0, 0.0,
-							-1.0, 1.0, 0.0, 0.0]
+		self.verticles_2d = [
+		0.0, self.height, 0.0, 1.0,
+		self.width, self.height, 1.0, 1.0,
+		self.width, 0.0, 1.0, 0.0,
+		0.0, 0.0, 0.0, 0.0
+	]
 
 		self.indices_2d = [0, 1, 2, 2, 3, 0]
 
