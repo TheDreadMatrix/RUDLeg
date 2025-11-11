@@ -1,7 +1,6 @@
 import pygame as pg
 import socket as sock
 import moderngl as mgl
-from PIL import Image
 import os, sys
 import json
 

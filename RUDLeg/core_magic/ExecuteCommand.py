@@ -265,10 +265,12 @@ def task_run(arguments):
                 with res.as_file(res.files("RUDLeg.core_magic").joinpath("DebugManager.py")) as debug_file_path:
                         subprocess.Popen([sys.executable, str(debug_file_path)])
 
-            
-            from RUDLeg.core_magic.TheMainGame import MyGame
-            MyGame().run()
-            
+            try:
+                from RUDLeg.core_magic.TheMainGame import MyGame
+                MyGame().run()
+            except ModuleNotFoundError:
+                    sys.stderr.write("\033[31mYou should create project at first.\033[0m")
+                    sys.exit(0)
 
 
 

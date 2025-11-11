@@ -208,8 +208,8 @@ License:                                  Apache License
 Requires-Python: >=3.8
 Description-Content-Type: text/markdown
 License-File: LICENSE
-Requires-Dist: numpy<1.27,>=1.23
 Requires-Dist: pygame-ce<2.6,>=2.5
 Requires-Dist: moderngl<6.5,>=5.10
 Requires-Dist: pyglm>=0.1
+Requires-Dist: Pillow<11.0,>=10.0
 Dynamic: license-file

@@ -14,7 +14,8 @@ requires-python = ">=3.8"
 dependencies = [
     "pygame-ce>=2.5,<2.6",
     "moderngl>=5.10,<6.5",
-    "pyglm>=0.1"
+    "pyglm>=0.1",
+    "Pillow>=10.0,<11.0"
 ]
 
 [tool.setuptools]
