@@ -227,7 +227,7 @@ def task_run(arguments):
 
         elif command == "log-flags":
             sys.stdout.write("\033[33mAll flags to write a log\033[0m")
-            for key, item in build_data.items:
+            for key, item in build_data.items():
                 if key != "build":
                     sys.stdout.write(f"\033[33m{key} - {item}\033[0m")
             sys.exit(0)
