@@ -28,6 +28,10 @@ class MyGame:
 
 	def __init__(self):
 		pg.init()
+		build_path = res.files("RUDLeg.core_magic").joinpath("build.json")
+		self.build = Joshua(str(build_path))
+		self.build_data = self.build.read_data()
+
 		self.data = Joshua(path=RSET)
 		self.data_read = self.data.read_data()
 
@@ -83,7 +87,7 @@ class MyGame:
 		try:
 			self.scene = SceneManager(self)
 		except Exception as error:
-			if self.data_read["debug"]:
+			if self.build_data["debug"]:
 				pg.display.message_box("Look! Its an error!", f"{error} in that scene: {self.get_scene}")
 			sys.exit(1)
 
@@ -121,7 +125,7 @@ class MyGame:
 
 
 	@property
-	def get_scene(self): return self.data_read["game-statetment"]
+	def get_scene(self): return self.data_read["game-state"]
 	
 	@property
 	def width(self): return self.screen.get_width()
@@ -158,7 +162,7 @@ class MyGame:
 				self.handler_update()
 				self.render()
 			except Exception as error:
-				if self.data_read["debug"]:
+				if self.build_data["debug"]:
 					pg.display.message_box("Look! Its an error!", f"{error} in that scene: {self.get_scene}")
 				sys.exit(1)
 				

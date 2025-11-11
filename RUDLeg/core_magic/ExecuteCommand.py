@@ -201,15 +201,25 @@ def task_run(arguments):
 
         #Execute line
         elif command == "on-debug":
-            pass
+            if build_data["debug"]:
+                sys.stderr.write("\033[33mNothing to do...[0m")
+                sys.exit(1)
+            else:
+                build_data["debug"] = True
+                build.save_data(build_data)
 
         elif command == "off-debug":
-            pass
+            if not build_data["debug"]:
+                sys.stderr.write("\033[33mNothing to do[0m")
+                sys.exit(1)
+            else:
+                build_data["debug"] = False
+                build.save_data(build_data)
 
 
         elif command == "run":
-            if build_data["was_built"]:
-                build_data["was_built"] = False
+            if build_data["build"]:
+                build_data["build"] = False
                 build.save_data(build_data)
   
 
@@ -238,8 +248,8 @@ def task_run(arguments):
 
             locate_danger(dir_name=dir_name)
 
-            if not build_data["was_built"]:
-                build_data["was_built"] = True
+            if not build_data["build"]:
+                build_data["build"] = True
                 build.save_data(build_data)
                 sys.stdout.write("\033[32mYour have built succesfully.\033[0m")
                 sys.exit(0)
@@ -258,7 +268,7 @@ def task_run(arguments):
             locate_danger(dir_name=dir_name)
 
 
-            build_data["was_built"] = False
+            build_data["build"] = False
             build.save_data(build_data)
 
             if build_data["debug"]:

@@ -10,18 +10,18 @@ def scene_code(dir_name: str):
              "\n"\
              "\t\tself.app = app\n" \
              "\t\tself.state = None\n"\
-             "\t\tself.app.data_read['game-statetment'] = 'scene-1'\n"\
+             "\t\tself.app.data_read['game-state'] = 'scene-1'\n"\
              "\n"\
              "\t\t#That you can register a new scene\n"\
              "\t\tself.scene_dict = {'scene-1': lambda: MyScene1(app=app), 'scene-2': lambda: MyScene2(app=app)}\n"\
-             "\t\tself.current_scene = self.scene_dict.get(self.app.data_read['game-statetment'])()"\
+             "\t\tself.current_scene = self.scene_dict.get(self.app.data_read['game-state'])()"\
              "\n" \
              "\n"\
              "\t#that method need only for update logic and physic functions\n"\
              "\tdef update(self):\n" \
-             "\t\tstate = self.app.data_read['game-statetment']\n"\
+             "\t\tstate = self.app.data_read['game-state']\n"\
              "\t\tif self.state != state:\n"\
-             "\t\t\tself.current_scene = self.scene_dict.get(self.app.data_read['game-statetment'])()\n"\
+             "\t\t\tself.current_scene = self.scene_dict.get(self.app.data_read['game-state'])()\n"\
              "\t\t\tself.state = state\n"\
              "\n"\
              "\t\tself.current_scene.update()\n" \
@@ -182,17 +182,12 @@ example_frag = "#version 330 core\n" \
 
 
 example_data = '{\n'\
-  '\t"venv": "venv/Scripts/activate",\n'\
   '\t"window-size": [\n'\
   '\t\t800,\n'\
   '\t\t600\n'\
   '\t],\n'\
   '\t"fps": 90,\n'\
   '\t"game-state": "scene-1",\n'\
-  '\t"music-volume": 1.0,\n'\
-  '\t"sound-volume": 1.0,\n'\
-  '\t"graphics": true,\n'\
-  '\t"debug": true,\n'\
   '\t"need-to-save": true\n'\
 '}'\
 

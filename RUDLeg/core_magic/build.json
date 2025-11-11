@@ -1,7 +1,5 @@
 {
-  "was_built": false,
+  "build": false,
   "debug": true,
-  "was_desktoped": false,
-  "os": "win32",
-  "venv": "venv/Scripts/activate"
+  "desktoped": false
 }
