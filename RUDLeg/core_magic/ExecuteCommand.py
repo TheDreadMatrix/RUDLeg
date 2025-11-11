@@ -66,6 +66,7 @@ def task_run(arguments):
 
             
             dir_name = arguments[2]
+            inverter_file = "TheMainGame.py"
             file_path = res.files("RUDLeg.core_magic").joinpath(inverter_file)
             with open(file_path, "r", encoding="UTF-8") as f:
                 code_writer = f.read()
