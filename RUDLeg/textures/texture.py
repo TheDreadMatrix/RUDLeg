@@ -49,11 +49,11 @@ def give_program(vertex_path, fragment_path, ctx):
 
 def from_ndc_to_sdl(width, height) -> glm.mat4:
      return glm.mat4(
-          glm.vec4(width // 2, 0, 0, 0),
-          glm.vec4(0, -height // 2, 0, 0),
-          glm.vec4(0, 0, 1, 0),
-          glm.vec4(width // 2, height // 2, 0, 1)
-     )
+        glm.vec4(2.0/width, 0.0, 0.0, 0.0),
+        glm.vec4(0.0, -2.0/height, 0.0, 0.0),
+        glm.vec4(0.0, 0.0, 1.0, 0.0),
+        glm.vec4(-1.0, 1.0, 0.0, 1.0)
+    )
      
 
 

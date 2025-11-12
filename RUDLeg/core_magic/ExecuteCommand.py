@@ -66,6 +66,10 @@ def task_run(arguments):
 
             
             dir_name = arguments[2]
+            if not os.path.isdir(dir_name):
+                sys.stderr.write("\033[31mUndefined config. Please write exists dirs\033[0m")
+                sys.exit(1)
+
             inverter_file = "TheMainGame.py"
             file_path = res.files("RUDLeg.core_magic").joinpath(inverter_file)
             with open(file_path, "r", encoding="UTF-8") as f:
@@ -85,6 +89,7 @@ def task_run(arguments):
             
             with open(file_path, "w", encoding="utf-8") as f:
                 f.write(code_writer)
+            sys.stdout.write(f"\033[32mYour config: {dir_name} succesfully reloaded.\033[0m")
             sys.exit(0)
 
 
@@ -295,6 +300,10 @@ def task_run(arguments):
 
 
             dir_name = arguments[2]
+            if not os.path.isdir(dir_name):
+                sys.stderr.write("\033[31mUndefined config. Please write exists dirs\033[0m")
+                sys.exit(1)
+
 
             locate_danger(dir_name=dir_name)
 
@@ -315,6 +324,11 @@ def task_run(arguments):
                 sys.exit(1)
             
             dir_name = arguments[2]
+            if not os.path.isdir(dir_name):
+                sys.stderr.write("\033[31mUndefined config. Please write exists dirs\033[0m")
+                sys.exit(1)
+
+
             locate_danger(dir_name=dir_name)
 
 

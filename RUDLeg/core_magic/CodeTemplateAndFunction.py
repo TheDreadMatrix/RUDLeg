@@ -198,6 +198,10 @@ manager =   'from RUDLeg.core_magic.ExecuteCommand import task_run\n' \
             '\n' \
             'def main():\n' \
             '\n' \
+            '\tUse that command if you don not know:\n'\
+            '\t\tpy manager.py help : shows list of command promt\n'\
+            '\t\tpy manager.py create <config-name> : create game_dev config'\
+            '\tOther command you can learn in documentation. GoodLuck'\
             '\n' \
             '\ttask_run(sys.argv)\n' \
             '\n' \

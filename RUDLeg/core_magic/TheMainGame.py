@@ -1,6 +1,7 @@
 import pygame as pg
 import socket as sock
 import moderngl as mgl
+import glm
 import os, sys
 import json
 import importlib.resources as res
@@ -64,15 +65,14 @@ class MyGame:
 		self.ctx.viewport = (0, 0, self.screen.get_width(), self.screen.get_height())
 
 
-		self.verticles_2d = [
-		0.0, self.height, 0.0, 1.0,
-		self.width, self.height, 1.0, 1.0,
-		self.width, 0.0, 1.0, 0.0,
-		0.0, 0.0, 0.0, 0.0
-	]
+		self.verticles_2d = glm.array(glm.float32,
+    0.0, 0.0, 0.0, 1.0,
+    1.0, 0.0, 1.0, 1.0,
+    1.0, 1.0, 1.0, 0.0,
+    0.0, 1.0, 0.0, 0.0
+)
 
-		self.indices_2d = [0, 1, 2, 2, 3, 0]
-
+		self.indices = glm.array(glm.uint32, 0, 1, 2, 2, 3, 0)
 
 		#Attributes
 		self.is_run = True
@@ -165,7 +165,7 @@ class MyGame:
 				self.render()
 			except Exception as error:
 				if self.build_data["debug"]:
-					pg.display.message_box("Look! Its an error!", f"{error} in that scene: {self.get_scene}")
+					pg.display.message_box("Look! Its an error!", f"{error} in that scene: {self.get_scene} from update")
 				sys.exit(1)
 				
 

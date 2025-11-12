@@ -10,6 +10,8 @@ config/
 dist
 dist/
 
+obama.py
+
 rudleg-egg-info/
 rudleg-egg-info
 
